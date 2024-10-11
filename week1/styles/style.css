@@ -4,6 +4,7 @@ body {
   width: 100vw;
   height: 100%;
   overflow-x: hidden;
+  background-color: black;
 }
 
 .mainHeader {
@@ -55,7 +56,7 @@ body {
   margin-left: 40px;
 }
 
-li:last-child .scrollImg {
+ul:last-child .scrollImg {
   margin-right: 40px;
 }
 
@@ -122,4 +123,38 @@ li:last-child .scrollImg {
 
 .mainLinkBtn:hover{
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.infinityBanner{
+  width: 100%;
+  height: 250px;
+  padding: 40px 20px;
+}
+
+.bannerImgs{
+  display: flex;
+  gap: 20px;
+  animation: bannerAnimation 18s linear infinite;
+}
+
+.bannerImg{
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+
+}
+
+.sectionTitle{
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+@keyframes bannerAnimation {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
 }
