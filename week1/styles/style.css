@@ -1,8 +1,6 @@
 @import "reset.css";
-body{
-}
 
-.mainHeader{
+.mainHeader {
   height: 80px;
   background-color: red;
   display: flex;
@@ -11,24 +9,59 @@ body{
   padding: 0 20px;
 }
 
-.leftHeader{
+.leftHeader {
   display: flex;
   align-items: center;
 }
 
-.headerCategory{
-  display: flex
-
+.headerCategory {
+  display: flex;
+  gap: 20px;
 }
 
-.category{
-  margin-left: 15px;
-}
-
-.logoImg{
+.logoImg {
   width: 100px;
 }
 
-.headerIcons{
+.headerIcons {
   width: 20px;
+}
+
+.scrollView {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.scrollView::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollImg {
+  width: 240px;
+  height: 300px;
+  border-radius: 10px;
+  margin-left: 40px;
+}
+
+li:last-child .scrollImg {
+  margin-right: 40px;
+}
+
+.arrowBtn {
+  z-index: 2;
+  position: fixed;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}
+
+.fa-arrow-left {
+  left: 10px;
+}
+
+.fa-arrow-right {
+  right: 10px;
 }
