@@ -25,7 +25,7 @@ body {
   gap: 20px;
 }
 
-.rightHeader{
+.rightHeader {
   display: flex;
   gap: 15px;
 }
@@ -137,7 +137,7 @@ body {
 .bannerImgs {
   display: flex;
   gap: 20px;
-  animation: bannerAnimation 18s linear infinite;
+  animation: bannerAnimation 20s linear infinite;
 }
 
 .bannerImg {
@@ -147,7 +147,7 @@ body {
   transition: transform 0.3s ease;
 }
 
-.bannerImg:hover{
+.bannerImg:hover {
   transform: scale(1.1);
 }
 
