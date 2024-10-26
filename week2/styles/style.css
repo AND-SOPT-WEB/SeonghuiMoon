@@ -40,6 +40,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 30px;
+  padding-bottom: 30px;
 }
 
 .filterSection {
@@ -171,8 +172,8 @@ body {
   background-color: rgb(75, 47, 23);
 }
 
-.modalBackgroun {
-  /* display: none; */
+.modalBackground {
+  display: none;
   position: fixed;
   z-index: 3;
   left: 0;
@@ -183,17 +184,14 @@ body {
 }
 
 .addModal {
-  /* display: none; */
-  position: absolute;
-  z-index: 4;
-  display: flex;
-}
-
-.modalContent {
+  position: fixed;
+  display: none;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
   width: 300px;
+  z-index: 4;
+  top: 8%;
 }
 
 .closeModalBtn {

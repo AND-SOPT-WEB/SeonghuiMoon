@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,8 +51,8 @@
               <div class="inputLabel centerPosition">성별</div>
               <select class="inputText">
                 <option disabled hidden selected>성별 선택</option>
-                <option value="man">남성</option>
-                <option value="woman">여성</option>
+                <option value="man">남자</option>
+                <option value="woman">여자</option>
               </select>
             </div>
             <div class="inputForm">
@@ -114,79 +114,55 @@
               <th class="headerCell">2주차 금잔디</th>
             </tr>
           </thead>
-          <tbody class="tableBody">
-            <tr class="bodyRow">
-              <td class="bodyCell">
-                <input type="checkbox" />
-              </td>
-              <td class="bodyCell">문성희</td>
-              <td class="bodyCell">seonghui</td>
-              <td class="bodyCell">seong-hui</td>
-              <td class="bodyCell">여성</td>
-              <td class="bodyCell">OB</td>
-              <td class="bodyCell">9</td>
-              <td class="bodyCell">4</td>
-            </tr>
-            <tr class="bodyRow">
-              <td class="bodyCell">
-                <input type="checkbox" />
-              </td>
-              <td class="bodyCell">문성희</td>
-              <td class="bodyCell">seonghui</td>
-              <td class="bodyCell">seong-hui</td>
-              <td class="bodyCell">여성</td>
-              <td class="bodyCell">OB</td>
-              <td class="bodyCell">9</td>
-              <td class="bodyCell">4</td>
-            </tr>
-          </tbody>
+          <tbody class="tableBody"></tbody>
         </table>
       </section>
 
-      <section class="modalBackgroun"></section>
-      <section class="addModal">
-        <div class="modalContent">
-          <span class="closeModalBtn">&times;</span>
-          <div class="modalTitle">새 멤버 추가</div>
-          <form class="modalForm">
-            <div class="modalLable">이름</div>
-            <input type="text" placeholder="이름을 입력하세요." required />
-            <div class="modalLable">영문 이름</div>
-            <input type="text" placeholder="영문이름을 입력하세요." required />
-            <div class="modalLable">GitHub</div>
-            <input type="text" placeholder="GitHub ID를 입력하세요." required />
-            <div class="modalLable">성별</div>
-            <select required>
-              <option disabled hidden selected>성별 선택</option>
-              <option value="male">남성</option>
-              <option value="female">여성</option>
-            </select>
-            <div class="modalLable">역할</div>
-            <select required>
-              <option disabled hidden selected>YB / OB 선택</option>
-              <option value="yb">YB</option>
-              <option value="ob">OB</option>
-            </select>
-            <div class="modalLable">1주차 금잔디조</div>
-            <input
-              type="number"
-              placeholder="1주차 금잔디조 (1~9)를 입력하세요"
-              required
-              min="1"
-              max="9"
-            />
-            <div class="modalLable">2주차 금잔디조</div>
-            <input
-              type="number"
-              placeholder="2주차 금잔디조 (1~9)를 입력하세요."
-              required
-              min="1"
-              max="9"
-            />
-            <button type="submit" class="modalSubmitBtn">추가</button>
-          </form>
-        </div>
-      </section>
+      <section class="modalBackground"></section>
+      <div class="addModal">
+        <span class="closeModalBtn">&times;</span>
+        <div class="modalTitle">새 멤버 추가</div>
+        <form class="modalForm">
+          <div class="modalLable">이름</div>
+          <input type="text" placeholder="이름을 입력하세요." required />
+          <div class="modalLable">영문 이름</div>
+          <input type="text" placeholder="영문이름을 입력하세요." required />
+          <div class="modalLable">GitHub</div>
+          <input type="text" placeholder="GitHub ID를 입력하세요." required />
+          <div class="modalLable">성별</div>
+          <select required>
+            <option disabled hidden selected>성별 선택</option>
+            <option value="male">남자</option>
+            <option value="female">여자</option>
+          </select>
+          <div class="modalLable">역할</div>
+          <select required>
+            <option disabled hidden selected>YB / OB 선택</option>
+            <option value="yb">YB</option>
+            <option value="ob">OB</option>
+          </select>
+          <div class="modalLable">1주차 금잔디조</div>
+          <input
+            type="number"
+            placeholder="1주차 금잔디조 (1~9)를 입력하세요"
+            required
+            min="1"
+            max="9"
+          />
+          <div class="modalLable">2주차 금잔디조</div>
+          <input
+            type="number"
+            placeholder="2주차 금잔디조 (1~9)를 입력하세요."
+            required
+            min="1"
+            max="9"
+          />
+          <button type="submit" class="modalSubmitBtn">추가</button>
+        </form>
+      </div>
     </section>
+    <script type="module" src="./javascripts/modal.js"></script>
+    <script type="module" src="./data/member.js"></script>
+    <script type="module" src="./javascripts/renderTable.js"></script>
   </body>
 </html>
