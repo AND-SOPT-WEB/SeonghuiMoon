@@ -1,0 +1,35 @@
+@import "reset.css";
+
+body {
+  width: 100vw;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.mainHeader {
+  height: 80px;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: burlywood;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 화면을 3등분 */
+  align-content: center;
+  gap: 16px;
+}
+
+.leftHeader {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.centerHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.rightHeader {
+  display: flex;
+  justify-content: flex-end;
+}
