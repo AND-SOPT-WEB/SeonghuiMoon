@@ -1,0 +1,23 @@
+{
+  "workbench.colorTheme": "Default Dark Modern",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "files.autoSave": "afterDelay",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.guides.bracketPairs": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "html.format.enable": false,
+  "json.format.keepLines": true,
+  "debug.javascript.terminalOptions": {
+    "terminal.integrated.shell.osx": "/bin/zsh"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "playwright.reuseBrowser": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true
+}
