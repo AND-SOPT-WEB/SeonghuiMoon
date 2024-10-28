@@ -24,4 +24,4 @@ export const renderTable = (data = getMemberData()) => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", renderTable());
+document.addEventListener("DOMContentLoaded", () => renderTable());
