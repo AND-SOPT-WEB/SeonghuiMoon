@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/c9218056bf.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>2주차 과제</title>
+  </head>
+  <body>
+    <header class="mainHeader">
+      <section class="leftHeader">
+        <i class="fa-solid fa-user headerIcons"></i>
+      </section>
+      <section class="centerHeader">회원 관리 페이지</section>
+      <section class="rightHeader">AND SOPT AND SOPT AND SOPT</section>
+    </header>
+
+    <section class="mainContent">
+      <section class="filterSection">
+        <form class="filterForm">
+          <div class="inputForm">
+            <div class="inputLabel centerPosition">이름</div>
+            <input
+              type="text"
+              class="inputText filterName"
+              placeholder="이름을 입력하세요."
+            />
+          </div>
+          <div class="inputForm">
+            <div class="inputLabel centerPosition">영문이름</div>
+            <input
+              type="text"
+              class="inputText filterEngName"
+              placeholder="영문이름을 입력하세요."
+            />
+          </div>
+          <div class="grid3Col">
+            <div class="inputForm">
+              <div class="inputLabel centerPosition">GitHub</div>
+              <input
+                type="text"
+                class="inputText filterGit"
+                placeholder="GitHub ID를 입력하세요."
+              />
+            </div>
+            <div class="inputForm">
+              <div class="inputLabel centerPosition">성별</div>
+              <select class="inputText filterGender">
+                <option disabled hidden selected>성별 선택</option>
+                <option value="male">남자</option>
+                <option value="female">여자</option>
+              </select>
+            </div>
+            <div class="inputForm">
+              <div class="inputLabel centerPosition">역할</div>
+              <select class="inputText filterRole">
+                <option disabled hidden selected>YB / OB 선택</option>
+                <option value="YB">YB</option>
+                <option value="OB">OB</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid2Col">
+            <div class="inputForm">
+              <div class="inputLabel centerPosition">1주차 금잔디조</div>
+              <input
+                type="number"
+                class="inputText filterWeek1"
+                placeholder="1주차 금잔디조를 입력하세요(1~9)"
+                min="1"
+                max="9"
+              />
+            </div>
+            <div class="inputForm">
+              <div class="inputLabel centerPosition">2주차 금잔디조</div>
+              <input
+                type="number"
+                class="inputText filterWeek2"
+                placeholder="2주차 금잔디조를 입력하세요(1~9)"
+                min="1"
+                max="9"
+              />
+            </div>
+          </div>
+          <div class="grid2Col">
+            <button type="reset" class="resetBtn basicBtn">초기화</button>
+            <button class="searchBtn basicBtn">검색</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="tableSection">
+        <div class="buttonBox">
+          <button class="deleteBtn smallBtn">선택 삭제</button>
+          <button class="addBtn smallBtn">추가</button>
+        </div>
+        <table class="listTable">
+          <thead class="tableHeader">
+            <tr class="headerRow">
+              <th class="headerCell">
+                <input type="checkbox" id="selectAll" />
+              </th>
+              <th class="headerCell">이름</th>
+              <th class="headerCell">영문이름</th>
+              <th class="headerCell">GitHub</th>
+              <th class="headerCell">성별</th>
+              <th class="headerCell">역할</th>
+              <th class="headerCell">1주차 금잔디</th>
+              <th class="headerCell">2주차 금잔디</th>
+            </tr>
+          </thead>
+          <tbody class="tableBody"></tbody>
+        </table>
+      </section>
+
+      <section class="modalBackground"></section>
+      <div class="addModal">
+        <span class="closeModalBtn">&times;</span>
+        <div class="modalTitle">새 멤버 추가</div>
+        <form class="modalForm">
+          <div class="modalLable">이름</div>
+          <input
+            type="text"
+            class="modalName"
+            placeholder="이름을 입력하세요."
+          />
+          <div class="modalLable">영문 이름</div>
+          <input
+            type="text"
+            class="modalEngName"
+            placeholder="영문이름을 입력하세요."
+          />
+          <div class="modalLable">GitHub</div>
+          <input
+            type="text"
+            class="modalGit"
+            placeholder="GitHub ID를 입력하세요."
+          />
+          <div class="modalLable">성별</div>
+          <select class="modalGender">
+            <option disabled hidden selected>성별 선택</option>
+            <option value="male">남자</option>
+            <option value="female">여자</option>
+          </select>
+          <div class="modalLable">역할</div>
+          <select class="modalRole">
+            <option disabled hidden selected>YB / OB 선택</option>
+            <option value="YB">YB</option>
+            <option value="OB">OB</option>
+          </select>
+          <div class="modalLable">1주차 금잔디조</div>
+          <input
+            type="number"
+            placeholder="1주차 금잔디조 (1~9)를 입력하세요"
+            min="1"
+            max="9"
+            class="modalWeek1"
+          />
+          <div class="modalLable">2주차 금잔디조</div>
+          <input
+            type="number"
+            placeholder="2주차 금잔디조 (1~9)를 입력하세요."
+            min="1"
+            max="9"
+            class="modalWeek2"
+          />
+          <button type="submit" class="modalSubmitBtn">추가</button>
+        </form>
+      </div>
+    </section>
+    <script type="module" src="./data/member.js"></script>
+    <script type="module" src="./javascripts/dataUtils.js"></script>
+    <script type="module" src="./javascripts/renderTable.js"></script>
+    <script type="module" src="./javascripts/modal.js"></script>
+    <script type="module" src="./javascripts/addMember.js"></script>
+    <script type="module" src="./javascripts/filterMember.js"></script>
+    <script type="module" src="./javascripts/deleteMember.js"></script>
+    <script type="module" src="./javascripts/setSelectAll.js"></script>
+  </body>
+</html>
