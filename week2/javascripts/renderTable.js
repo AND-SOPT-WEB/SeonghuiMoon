@@ -1,13 +1,15 @@
-const renderTable = () => {
-  const memberData = JSON.parse(localStorage.getItem("membersData"));
+import { getMemberData } from "./dataUtils.js";
+
+export const renderTable = (data = getMemberData()) => {
   const tableBody = document.querySelector(".tableBody");
   tableBody.innerHTML = "";
 
-  memberData.forEach((member) => {
+  data.forEach((member) => {
     const row = document.createElement("tr");
     row.classList.add("bodyRow");
+    row.setAttribute("memberId", member.id);
     row.innerHTML = `
-      <td class="bodyCell"><input type="checkbox" /></td>
+      <td class="bodyCell"><input type="checkbox" class="deleteCheckbox" /></td>
       <td class="bodyCell">${member.name}</td>
       <td class="bodyCell">${member.englishName}</td>
       <td class="bodyCell">
@@ -22,4 +24,4 @@ const renderTable = () => {
   });
 };
 
-document.addEventListener("DOMContentLoaded", renderTable);
+document.addEventListener("DOMContentLoaded", renderTable());
