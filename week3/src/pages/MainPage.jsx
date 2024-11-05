@@ -2,11 +2,15 @@ import Header from "../components/header/header";
 import Game from "../components/game/Game";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { getCardSettings } from "../utils/gameUtils";
 
 const Mainpage = () => {
   const [time, setTime] = useState(0);
   const timerRef = useRef(null);
   const [selectedLevel, setSelectedLevel] = useState(1);
+  const [gameSize, setGameSize] = useState(3);
+  const [middleNum, setMiddleNum] = useState(9);
+  const [hideEndNum, setHideEndNum] = useState(18);
 
   const startTimer = () => {
     if (!timerRef.current) {
@@ -31,6 +35,10 @@ const Mainpage = () => {
 
   const handleSelectLevel = (level) => {
     setSelectedLevel(level);
+    const cardSettings = getCardSettings(level);
+    setGameSize(cardSettings.gameSize);
+    setMiddleNum(cardSettings.middleNum);
+    setHideEndNum(cardSettings.hideEndNum);
     stopTimer();
   };
 
@@ -43,6 +51,9 @@ const Mainpage = () => {
         resetTimer={resetTimer}
         time={time.toFixed(2)}
         level={selectedLevel}
+        gameSize={gameSize}
+        middleNum={middleNum}
+        hideEndNum={hideEndNum}
       />
     </PageContainer>
   );

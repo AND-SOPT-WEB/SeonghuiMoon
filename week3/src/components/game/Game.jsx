@@ -4,20 +4,29 @@ import { useEffect, useState } from "react";
 import { getRandomNums, generateNums } from "../../utils/gameUtils";
 import { recordRankingData } from "../../utils/localStorageUtils";
 
-const Game = ({ startTimer, stopTimer, resetTimer, time, level }) => {
+const Game = ({
+  startTimer,
+  stopTimer,
+  resetTimer,
+  time,
+  level,
+  gameSize,
+  middleNum,
+  hideEndNum,
+}) => {
   const [nextNum, setNextNum] = useState(1);
 
   const [visibleNums, setVisibleNums] = useState(() =>
-    getRandomNums(generateNums(1, 9))
+    getRandomNums(generateNums(1, middleNum))
   );
   const [hideNums, setHideNums] = useState(() =>
-    getRandomNums(generateNums(10, 9))
+    getRandomNums(generateNums(middleNum + 1, middleNum))
   );
 
   const resetGame = () => {
     setNextNum(1);
-    setVisibleNums(getRandomNums(generateNums(1, 9)));
-    setHideNums(getRandomNums(generateNums(10, 9)));
+    setVisibleNums(getRandomNums(generateNums(1, middleNum)));
+    setHideNums(getRandomNums(generateNums(middleNum + 1, middleNum)));
     resetTimer();
   };
 
@@ -34,7 +43,7 @@ const Game = ({ startTimer, stopTimer, resetTimer, time, level }) => {
 
     if (nextNum === 1) startTimer();
 
-    if (nextNum === 18) {
+    if (nextNum === hideEndNum) {
       stopTimer();
       alert(`게임 끝~~!!!!! ${time}초 걸렸습니당`);
 
@@ -44,7 +53,7 @@ const Game = ({ startTimer, stopTimer, resetTimer, time, level }) => {
       return;
     }
 
-    if (nextNum >= 10) {
+    if (nextNum >= middleNum + 1) {
       updateCard(index);
     } else {
       const [nextVisibleNum, ...remainingNums] = hideNums;
@@ -62,7 +71,7 @@ const Game = ({ startTimer, stopTimer, resetTimer, time, level }) => {
   return (
     <GameContainer>
       <NextNumStyled>다음 숫자 : {nextNum}</NextNumStyled>
-      <CardGrid size={3}>
+      <CardGrid size={gameSize}>
         {visibleNums.map((number, index) =>
           number ? (
             <Card
