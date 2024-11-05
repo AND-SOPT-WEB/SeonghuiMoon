@@ -3,7 +3,7 @@ import Button from "../button/Button";
 import Dropdown from "../dropDown/Dropdown";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const Header = ({ time }) => {
+const Header = ({ time, handleSelectLevel }) => {
   const navigate = useNavigate();
 
   const onClickGameBtn = () => {
@@ -29,7 +29,7 @@ const Header = ({ time }) => {
       </HeaderSection>
       {isMainPage && (
         <HeaderSection>
-          <Dropdown />
+          <Dropdown handleSelectLevel={handleSelectLevel} />
           <TimeStyled>{time}</TimeStyled>
         </HeaderSection>
       )}

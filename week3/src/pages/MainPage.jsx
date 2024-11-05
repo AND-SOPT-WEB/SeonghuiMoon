@@ -6,6 +6,7 @@ import styled from "styled-components";
 const Mainpage = () => {
   const [time, setTime] = useState(0);
   const timerRef = useRef(null);
+  const [selectedLevel, setSelectedLevel] = useState(1);
 
   const startTimer = () => {
     if (!timerRef.current) {
@@ -28,15 +29,20 @@ const Mainpage = () => {
     return () => stopTimer();
   }, []);
 
+  const handleSelectLevel = (level) => {
+    setSelectedLevel(level);
+    stopTimer();
+  };
+
   return (
     <PageContainer>
-      <Header time={time.toFixed(2)} />
+      <Header time={time.toFixed(2)} handleSelectLevel={handleSelectLevel} />
       <Game
         startTimer={startTimer}
         stopTimer={stopTimer}
         resetTimer={resetTimer}
         time={time.toFixed(2)}
-        level={1}
+        level={selectedLevel}
       />
     </PageContainer>
   );

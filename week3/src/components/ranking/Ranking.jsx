@@ -104,10 +104,4 @@ const TableData = styled.td`
   text-align: center;
 `;
 
-const EmptyView = styled.div`
-  width: 100%;
-  height: 5rem;
-  background-color: red;
-`;
-
 export default Ranking;

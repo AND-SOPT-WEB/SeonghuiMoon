@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Card from "../card/Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getRandomNums, generateNums } from "../../utils/gameUtils";
 import { recordRankingData } from "../../utils/localStorageUtils";
 
@@ -54,6 +54,10 @@ const Game = ({ startTimer, stopTimer, resetTimer, time, level }) => {
 
     setNextNum((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    resetGame();
+  }, [level]);
 
   return (
     <GameContainer>

@@ -1,24 +1,11 @@
-import { useState } from "react";
 import styled from "styled-components";
 
-const Dropdown = () => {
-  const [selectedLevel, setSelectedLevel] = useState("Level 1");
-
-  const handleSelect = (level) => {
-    setSelectedLevel(level);
-  };
-
+const Dropdown = ({ handleSelectLevel }) => {
   return (
-    <DropdownMenu>
-      <DropdownItem onClick={() => handleSelect("Level 1")}>
-        Level 1
-      </DropdownItem>
-      <DropdownItem onClick={() => handleSelect("Level 2")}>
-        Level 2
-      </DropdownItem>
-      <DropdownItem onClick={() => handleSelect("Level 3")}>
-        Level 3
-      </DropdownItem>
+    <DropdownMenu onChange={handleSelectLevel}>
+      <DropdownItem value={1}>Level 1</DropdownItem>
+      <DropdownItem value={2}>Level 2</DropdownItem>
+      <DropdownItem value={3}>Level 3</DropdownItem>
     </DropdownMenu>
   );
 };
