@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../button/Button";
-import { getRankingData } from "../../utils/localStorageUtils";
+import {
+  getRankingData,
+  removeRankingData,
+} from "../../utils/localStorageUtils";
 import { sortRecords } from "../../utils/gameUtils";
 
 const Ranking = () => {
@@ -14,7 +17,10 @@ const Ranking = () => {
     setRecords(sortedRecords);
   }, []);
 
-  const onClickResetBtn = () => {};
+  const onClickResetBtn = () => {
+    removeRankingData();
+    setRecords([]);
+  };
 
   return (
     <RankingContainer>
@@ -47,6 +53,7 @@ const Ranking = () => {
 };
 
 const RankingContainer = styled.section`
+  width: 60rem;
   padding: 3rem;
   margin-bottom: 5rem;
   display: flex;
@@ -95,6 +102,12 @@ const TableData = styled.td`
   padding: 2rem;
   border: 0.1rem solid white;
   text-align: center;
+`;
+
+const EmptyView = styled.div`
+  width: 100%;
+  height: 5rem;
+  background-color: red;
 `;
 
 export default Ranking;

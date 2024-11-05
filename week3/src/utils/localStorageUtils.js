@@ -18,4 +18,8 @@ const getRankingData = () => {
   return JSON.parse(localStorage.getItem("rankingData")) || [];
 };
 
-export { recordRankingData, getRankingData };
+const removeRankingData = () => {
+  localStorage.removeItem("rankingData");
+};
+
+export { recordRankingData, getRankingData, removeRankingData };
