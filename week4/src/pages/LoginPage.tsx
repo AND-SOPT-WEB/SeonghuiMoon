@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Input from "../components/input/Input";
+import Button from "../components/button/Button";
 
 const LoginPage = () => {
   return (
@@ -8,6 +9,7 @@ const LoginPage = () => {
         <InputTitle>로그인</InputTitle>
         <Input placeholder="아이디" />
         <Input placeholder="비밀번호" type="password" />
+        <Button text="로그인"/>
       </LoginBox>
     </LoginPageContainer>
   );

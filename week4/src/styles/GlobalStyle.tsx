@@ -1,7 +1,6 @@
-import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = `
 ${reset}
  html {
   font-size: 62.5%;
