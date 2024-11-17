@@ -52,7 +52,7 @@ const SignUpPage = () => {
     if (loginStep < steps.length - 1) loginSetStep((prev) => prev + 1);
     else {
       alert(`회원가입 성공! 회원 번호 : ${name}, ${password}, ${hobby}`);
-      navigate("/home");
+      navigate("/hobby");
     }
   };
   const isValidStep = () => {

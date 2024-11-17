@@ -29,6 +29,8 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   box-sizing: border-box;
   align-items: center;
+  position: absolute;
+  top: 0;
 `;
 
 const LeftTab = styled.div`
