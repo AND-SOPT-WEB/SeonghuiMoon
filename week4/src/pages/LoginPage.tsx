@@ -18,7 +18,7 @@ const LoginPage = () => {
         <Input placeholder="아이디" />
         <Input placeholder="비밀번호" type="password" />
         <Button text="로그인" />
-        <SignInBtn onClick={handleSignUpBtnClick}>회원가입</SignInBtn>
+        <SignInLink onClick={handleSignUpBtnClick}>회원가입</SignInLink>
       </LoginBox>
     </LoginPageContainer>
   );
@@ -38,7 +38,7 @@ const LoginBox = styled.div`
   gap: 0.5rem;
 `;
 
-const SignInBtn = styled.div`
+const SignInLink = styled.div`
   font-size: 1.3rem;
   margin-top: 1rem;
   color: ${({ theme }) => theme.COLORS.GREY};
