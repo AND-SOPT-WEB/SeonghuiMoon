@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Input from "../components/input/Input";
 import Button from "../components/button/Button";
 import { useNavigate } from "react-router-dom";
+import Title from "../components/title/Title";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const LoginPage = () => {
   return (
     <LoginPageContainer>
       <LoginBox>
-        <InputTitle>로그인</InputTitle>
+        <Title text="로그인" />
         <Input placeholder="아이디" />
         <Input placeholder="비밀번호" type="password" />
         <Button text="로그인" />
@@ -35,12 +36,6 @@ const LoginBox = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-`;
-
-const InputTitle = styled.div`
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
 `;
 
 const SignInBtn = styled.div`
