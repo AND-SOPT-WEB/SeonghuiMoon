@@ -78,7 +78,6 @@ const SignUpPage = () => {
       } catch (error) {
         console.error("회원가입 실패:", error);
         alert("회원가입에 실패했습니다. 다시 시도해주세요.");
-        navigate("/");
       }
     }
   };
@@ -86,13 +85,16 @@ const SignUpPage = () => {
   const isValidStep = () => {
     switch (loginStep) {
       case 0:
-        return name.trim();
+        return name.trim() && !isOverlength(name);
       case 1:
         return (
-          password.trim() && checkPassword.trim() && password === checkPassword
+          password.trim() &&
+          checkPassword.trim() &&
+          password === checkPassword &&
+          !isOverlength(password)
         );
       case 2:
-        return hobby.trim();
+        return hobby.trim() && !isOverlength(hobby);
       default:
         return false;
     }
