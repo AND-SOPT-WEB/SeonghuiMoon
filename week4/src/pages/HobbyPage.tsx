@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 
 const HobbyPage = () => {
   const [myHobbyData, setMyHobbyData] = useState("");
-  const [userHobbyData, setUserHobbyData] = useState("");
   const [userNo, setUserNo] = useState("");
+  const [searchHobby, setSearchHobby] = useState("");
 
   useEffect(() => {
     const getMyHobby = async () => {
@@ -27,9 +27,10 @@ const HobbyPage = () => {
   const handleSearchClick = async () => {
     try {
       const response = await userHobby(userNo);
-      setUserHobbyData(response.result.hobby);
+      setSearchHobby(`${userNo}번 사용자의 취미: ${response.result.hobby}`);
     } catch (error) {
-      console.error("검색 실패:", error);
+      console.error("검색 오류:", error);
+      alert("해당 번호의 데이터가 존재하지 않습니다.");
     }
   };
 
@@ -47,7 +48,7 @@ const HobbyPage = () => {
           onChange={(e) => setUserNo(e.target.value)}
         />
         <Button text="검색" onClick={handleSearchClick} />
-        {userNo}번 사용자의 취미 :{userHobbyData}
+        {searchHobby}
       </HobbyBox>
     </HobbyPageContainer>
   );
