@@ -7,6 +7,12 @@ const Header = () => {
   const handleTabClick = (path: string) => {
     navigate(path);
   };
+
+  const handleLogoutClick = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <HeaderContainer>
       <LeftTab>
@@ -14,7 +20,7 @@ const Header = () => {
         <MenuTab onClick={() => handleTabClick("/hobby")}>취미</MenuTab>
         <MenuTab onClick={() => handleTabClick("/mypage")}>내 정보</MenuTab>
       </LeftTab>
-      <MenuTab>로그아웃</MenuTab>
+      <MenuTab onClick={() => handleLogoutClick()}>로그아웃</MenuTab>
     </HeaderContainer>
   );
 };
