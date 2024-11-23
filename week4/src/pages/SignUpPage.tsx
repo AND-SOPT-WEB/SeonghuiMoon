@@ -15,6 +15,20 @@ const SignUpPage = () => {
   const [checkPassword, setCheckPassword] = useState("");
   const [hobby, setHobby] = useState("");
 
+  const isOverlength = (value: string) => {
+    if (value.length >= 8) {
+      return "값은 8자 이하로 입력해주세요";
+    }
+    return "";
+  };
+
+  const isNotMatch = (password: string, checkPassword: string) => {
+    if (password !== checkPassword) {
+      return "비밀번호가 일치하지 않습니다.";
+    }
+    return "";
+  };
+
   const steps = [
     <SignUpStep>
       <SignUpTitle>이름</SignUpTitle>
@@ -23,6 +37,7 @@ const SignUpPage = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+      <WarnText>{isOverlength(name)}</WarnText>
     </SignUpStep>,
     <SignUpStep>
       <SignUpTitle>비밀번호</SignUpTitle>
@@ -38,6 +53,8 @@ const SignUpPage = () => {
         value={checkPassword}
         onChange={(e) => setCheckPassword(e.target.value)}
       />
+      <WarnText>{isOverlength(password)}</WarnText>
+      <WarnText>{isNotMatch(password, checkPassword)}</WarnText>
     </SignUpStep>,
     <SignUpStep>
       <SignUpTitle>취미</SignUpTitle>
@@ -46,6 +63,7 @@ const SignUpPage = () => {
         value={hobby}
         onChange={(e) => setHobby(e.target.value)}
       />
+      <WarnText>{isOverlength(hobby)}</WarnText>
     </SignUpStep>,
   ];
 
@@ -136,4 +154,7 @@ const LoginLink = styled.div`
   text-decoration: underline;
 `;
 
+const WarnText = styled.span`
+  color: red;
+`;
 export default SignUpPage;
