@@ -4,6 +4,7 @@ import Input from "../components/input/Input";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "../components/button/Button";
+import { addUser } from "../apis/axios";
 
 const SignUpPage = () => {
   const [loginStep, loginSetStep] = useState(0);
@@ -48,13 +49,22 @@ const SignUpPage = () => {
     </SignUpStep>,
   ];
 
-  const hanleNextStepClick = () => {
+  const handleNextStepClick = async () => {
     if (loginStep < steps.length - 1) loginSetStep((prev) => prev + 1);
     else {
-      alert(`회원가입 성공! 회원 번호 : ${name}, ${password}, ${hobby}`);
-      navigate("/hobby");
+      try {
+        const userData = { username: name, password, hobby };
+        const response = await addUser(userData);
+        alert(`회원가입 성공! 회원 번호 : ${response.result.no}`);
+        navigate("/");
+      } catch (error) {
+        console.error("회원가입 실패:", error);
+        alert("회원가입에 실패했습니다. 다시 시도해주세요.");
+        navigate("/");
+      }
     }
   };
+
   const isValidStep = () => {
     switch (loginStep) {
       case 0:
@@ -77,7 +87,7 @@ const SignUpPage = () => {
         {steps[loginStep]}
         <Button
           text={loginStep < steps.length - 1 ? "다음" : "회원가입"}
-          onClick={hanleNextStepClick}
+          onClick={handleNextStepClick}
           disabled={!isValidStep()}
         ></Button>
         <LoginLink onClick={() => navigate("/")}>

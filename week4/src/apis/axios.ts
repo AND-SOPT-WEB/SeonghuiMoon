@@ -40,14 +40,14 @@ export const loginUser = async (loginData: LoginData) => {
 
 export const myHobby = async () => {
   try {
-    const response = await instance.get(AUTH_URL.MY_HOBBY_URL);
+    const response = await authInstance.get(AUTH_URL.MY_HOBBY_URL);
     return response.data;
   } catch (error) {
     if (isAxiosError(error)) throw error;
   }
 };
 
-export const UserHobby = async (userNo: string) => {
+export const userHobby = async (userNo: string) => {
   try {
     const response = await authInstance.get(AUTH_URL.USER_HOBBY_URL(userNo));
     return response.data;
@@ -56,9 +56,9 @@ export const UserHobby = async (userNo: string) => {
   }
 };
 
-interface FixMyData {
-  hobby: string;
-  password: string;
+export interface FixMyData {
+  hobby?: string;
+  password?: string;
 }
 
 export const fixUserInfo = async (fixMyData: FixMyData) => {
