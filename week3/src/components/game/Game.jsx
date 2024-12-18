@@ -3,6 +3,7 @@ import Card from "../card/Card";
 import { useEffect, useState } from "react";
 import { getRandomNums, generateNums } from "../../utils/gameUtils";
 import { recordRankingData } from "../../utils/localStorageUtils";
+import Modal from "../modal/modal";
 
 const Game = ({
   startTimer,
@@ -22,6 +23,7 @@ const Game = ({
   const [hideNums, setHideNums] = useState(() =>
     getRandomNums(generateNums(middleNum + 1, middleNum))
   );
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const resetGame = () => {
     setNextNum(1);
@@ -45,11 +47,10 @@ const Game = ({
 
     if (nextNum === hideEndNum) {
       stopTimer();
-      alert(`게임 끝~~!!!!! ${time}초 걸렸습니당`);
+      setIsModalOpen(true);
 
       const currentTime = new Date().toLocaleString();
       recordRankingData(currentTime, level, time);
-      resetGame();
       return;
     }
 
@@ -84,6 +85,16 @@ const Game = ({
           )
         )}
       </CardGrid>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          resetGame();
+        }}
+      >
+        <p>게임 끝~!</p>
+        <p>{time}초 걸렸습니다!</p>
+      </Modal>
     </GameContainer>
   );
 };
