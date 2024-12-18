@@ -6,10 +6,15 @@ const generateNums = (start, length) => {
   return Array.from({ length }, (_, i) => i + start);
 };
 
-const sortRecords = (rankingData) => {
-  return rankingData.sort(
-    (a, b) => parseFloat(a.gameTime) - parseFloat(b.gameTime)
-  );
+const sortRecords = (records) => {
+  return records.sort((a, b) => {
+    // 레벨 내림차순
+    if (b.level !== a.level) {
+      return b.level - a.level;
+    }
+    // 같은 Level이면 게임 시간 오름차순
+    return a.gameTime - b.gameTime;
+  });
 };
 
 const getCardSettings = (level) => {
